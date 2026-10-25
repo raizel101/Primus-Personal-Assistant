@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "root": "C:\\Users\\Subhajeet Bose\\Downloads\\Primus",
+  "model": {
+    "provider": "ollama",
+    "name": "qwen3:4b-instruct-2507-q4_K_M",
+    "endpoint": "http://127.0.0.1:11434/api/chat",
+    "timeout_seconds": 120,
+    "keep_alive": "30m"
+  },
+  "approved_folders": [
+    "C:\\Users\\Subhajeet Bose\\Downloads",
+    "C:\\Users\\Subhajeet Bose\\Documents",
+    "C:\\Users\\Subhajeet Bose\\Desktop",
+    "D:\\RL Project"
+  ],
+  "permissions": {
+    "read": "auto",
+    "write": "approved_folders",
+    "destructive": "confirm",
+    "external": "confirm",
+    "auto_approve": true
+  },
+  "network_plugins_enabled": false,
+  "browser": {
+    "enabled": true
+  },
+  "installed_apps": {
+    "enabled": true
+  },
+  "script_execution": {
+    "enabled": true,
+    "wsl_distro": "Ubuntu"
+  },
+  "cloud_enabled": false,
+  "memory": {
+    "task_context_enabled": true,
+    "context_retention_days": 30
+  },
+  "knowledge": {
+    "enabled": true
+  },
+  "mcp": {
+    "enabled": true,
+    "servers": [
+      {
+        "name": "primus_local",
+        "url": "http://127.0.0.1:8767/mcp",
+        "enabled": true,
+        "network": false,
+        "secret_name": "mcp-primus-token"
+      }
+    ]
+  },
+  "vision": {
+    "enabled": true,
+    "model": "qwen3-vl:4b",
+    "endpoint": "http://127.0.0.1:11435/api/chat",
+    "timeout_seconds": 120
+  },
+  "gestures": {
+    "enabled": true,
+    "camera_index": 0,
+    "min_hand_score": 0.8,
+    "hold_ms": 600,
+    "max_fps": 12
+  },
+  "fast_answer": {
+    "enabled": true,
+    "auto_simple": true,
+    "name": "qwen3:1.7b",
+    "endpoint": "http://127.0.0.1:11435/api/chat",
+    "timeout_seconds": 20,
+    "max_output_tokens": 128,
+    "keep_alive": "30m"
+  },
+  "max_steps": 8,
+  "max_invalid_responses": 2,
+  "agents": {
+    "max_parallel": 2,
+    "max_subtasks": 3
+  },
+  "missions": {
+    "enabled": true,
+    "max_steps": 8
+  },
+  "local_api": {
+    "host": "127.0.0.1",
+    "port": 8765
+  },
+  "scheduler": {
+    "poll_seconds": 1
+  },
+  "google": {
+    "enabled": false,
+    "client_id": ""
+  },
+  "search": {
+    "provider": "brave"
+  },
+  "tray": {
+    "hotkey": "<ctrl>+<alt>+p",
+    "auto_start_voice": true,
+    "show_voice_indicator": true
+  },
+  "voice": {
+    "wake_word": "Primus",
+    "stt_model_dir": "models/stt/faster-whisper-base.en",
+    "stt_device": "auto",
+    "tts_model": "models/tts/en_US-lessac-low.onnx",
+    "input_device": null,
+    "energy_threshold": 500,
+    "silence_seconds": 0.5,
+    "command_timeout_seconds": 8
+  },
+  "local_mcp": {
+    "enabled": true,
+    "port": 8767,
+    "secret_name": "mcp-primus-token"
+  }
+}

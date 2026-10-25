@@ -1,0 +1,12 @@
+{
+  "name": "Nominal coding workflow",
+  "facts": ["brief_received", "plan_ready", "code_ready", "review_passed", "task_ready"],
+  "initial": ["brief_received"],
+  "goal": ["task_ready"],
+  "actions": [
+    {"name": "plan_task", "preconditions": ["brief_received"], "add": ["plan_ready"], "delete": []},
+    {"name": "create_code", "preconditions": ["plan_ready"], "add": ["code_ready"], "delete": []},
+    {"name": "review_code", "preconditions": ["code_ready"], "add": ["review_passed"], "delete": []},
+    {"name": "finish_task", "preconditions": ["code_ready", "review_passed"], "add": ["task_ready"], "delete": []}
+  ]
+}

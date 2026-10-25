@@ -1,0 +1,11 @@
+{
+  "name": "Organize a download through staging",
+  "facts": ["download_present", "folder_ready", "staged", "organized"],
+  "initial": ["download_present"],
+  "goal": ["organized"],
+  "actions": [
+    {"name": "create_folder", "preconditions": ["download_present"], "add": ["folder_ready"], "delete": []},
+    {"name": "stage_download", "preconditions": ["download_present", "folder_ready"], "add": ["staged"], "delete": ["download_present"]},
+    {"name": "finish_organization", "preconditions": ["staged", "folder_ready"], "add": ["organized"], "delete": ["staged"]}
+  ]
+}

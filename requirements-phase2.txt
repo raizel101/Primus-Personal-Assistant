@@ -1,0 +1,4 @@
+keyring==25.7.0
+pystray==0.19.5
+pynput==1.8.2
+Pillow==13.0.0

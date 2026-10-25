@@ -1,0 +1,34 @@
+# Private runtime state, browser profiles, locks, and local databases
+/data/
+/logs/
+/temp/
+/decision.md
+
+# Downloaded models, installed dependencies, and generated artifacts
+/models/
+/vendor/
+/outputs/
+
+# Python caches and development environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

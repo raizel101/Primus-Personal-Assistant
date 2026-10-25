@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PRIMUS · Mission Control</title>
+  <link rel="stylesheet" href="/mission/style.css"><script src="/mission/app.js" defer></script>
+</head>
+<body>
+  <div id="approval-notice" class="approval-notice" role="status" hidden><strong>An action needs your approval</strong><span id="approval-notice-time"></span><button id="review-action" class="primary" type="button">Review action</button></div>
+  <aside class="sidebar">
+    <a class="brand" href="/mission"><span class="brand-mark">P</span><span>PRIMUS<small>PERSONAL AGENT SYSTEM</small></span></a>
+    <div class="nav-title">WORKSPACE</div>
+    <a class="nav active" href="#control"><span>◈</span> Mission Control</a>
+    <a class="nav" href="#history"><span>◷</span> Task history</a>
+    <div class="nav-title recent-title">RECENT MISSIONS</div>
+    <div id="mission-list" class="mission-list"><p class="muted small">Your missions will appear here.</p></div>
+    <div class="sidebar-footer"><span class="live-dot"></span> LOCAL PROCESSING<small id="root-path">Connecting to PRIMUS…</small></div>
+  </aside>
+  <main id="control">
+    <header class="topbar"><span>PRIMUS <span class="slash">/</span> Workspace <span class="slash">/</span> <strong>Mission Control</strong></span><span id="connection" class="pill">Connecting</span></header>
+    <section class="heading"><div><div class="eyebrow">YOUR GOAL. A PLAN. VERIFIED EVIDENCE.</div><h1>Mission Control<span class="accent">.</span></h1><p>Give your agents a brief. Follow the work, review actions, inspect the result.</p></div><div class="local-badge"><span class="live-dot"></span> RUNNING ON YOUR LAPTOP</div></section>
+    <div id="error" class="alert error" role="alert" hidden></div>
+    <div id="approval-mode" class="alert" role="status">Checking approval mode…</div>
+    <div id="signin" class="alert" hidden>Open <strong>Mission Control</strong> from the PRIMUS tray menu to start a secure local session. No API key needs to be pasted here.</div>
+    <section class="metrics" aria-label="Mission statistics">
+      <div class="metric"><span>ACTIVE MISSION</span><strong id="active-count">0</strong><small>One coding mission at a time</small></div>
+      <div class="metric"><span>COMPLETED MISSIONS</span><strong id="complete-count">0</strong><small>In the recent mission list</small></div>
+      <div class="metric"><span>SELECTED MISSION FILES</span><strong id="file-count">0</strong><small>Read-back and hash evidence</small></div>
+    </section>
+    <section class="brief panel">
+      <div class="panel-heading"><span class="eyebrow">NEW CODING MISSION</span><span class="pill subdued">LOCAL MODEL</span></div>
+      <form id="mission-form">
+        <label class="sr-only" for="goal">What should PRIMUS build?</label>
+        <textarea id="goal" maxlength="2000" required placeholder="What should we build? Describe the files, behavior, and checks you want…"></textarea>
+        <div class="examples"><span>TRY A BRIEF</span><button type="button" data-example="python">Python utility ↗</button><button type="button" data-example="json">JSON config ↗</button><button type="button" data-example="html">Landing page ↗</button></div>
+        <div class="brief-actions"><label class="check-label"><input id="runtime" type="checkbox"> Request sandbox tests <small>Each execution needs your exact approval</small></label><button id="launch" class="primary" type="submit" disabled>Launch mission <span>↗</span></button></div>
+      </form>
+    </section>
+    <section class="mission-header"><div><span class="eyebrow">AGENT WORKSPACE</span><h2 id="mission-title">Ready for your first mission</h2></div><div class="mission-meta"><span id="mission-status" class="pill">Standby</span><span id="elapsed" class="mono">00:00</span><button id="cancel" class="danger" hidden>Cancel mission</button></div></section>
+    <div id="mission-attention" class="alert error" role="status" hidden></div>
+    <section class="agent-grid" aria-label="Agent roles">
+      <article class="agent panel" id="agent-planner"><div class="agent-top"><span class="agent-number">01</span><span class="role-status pill">Waiting</span></div><div class="agent-symbol">◇</div><h3>Planner</h3><p>Turns the brief into steps and acceptance criteria.</p><div class="agent-bottom">PLAN &amp; SCOPE <span class="role-attempt"></span></div></article>
+      <article class="agent panel" id="agent-coder"><div class="agent-top"><span class="agent-number">02</span><span class="role-status pill">Waiting</span></div><div class="agent-symbol">⌘</div><h3>Coder</h3><p>Creates files in a workspace dedicated to this mission.</p><div class="agent-bottom">BUILD &amp; REPAIR <span class="role-attempt"></span></div></article>
+      <article class="agent panel" id="agent-verifier"><div class="agent-top"><span class="agent-number">03</span><span class="role-status pill">Waiting</span></div><div class="agent-symbol">◎</div><h3>Verifier</h3><p>Inspects actual files, runs checks, and reviews requirements.</p><div class="agent-bottom">CHECK &amp; REPORT <span class="role-attempt"></span></div></article>
+    </section>
+    <section id="approval" class="approval panel" hidden aria-live="polite"><div class="panel-heading"><h2>Action needs your approval</h2><span id="approval-expiry" class="pill warning"></span></div><p>Review the exact action below. This decision applies once.</p><pre id="approval-prompt"></pre><div class="approval-actions"><button id="reject" class="secondary">Reject</button><button id="approve" class="primary">Approve exact action</button></div></section>
+    <section class="detail-grid">
+      <article class="panel plan-panel"><div class="panel-heading"><h2>Mission plan</h2><span class="mini-label">PLANNER OUTPUT</span></div><ol id="plan" class="plan-list"><li class="empty">A validated plan will appear after the planner responds.</li></ol><h4>Acceptance criteria</h4><ul id="criteria" class="criteria-list"><li class="empty">Defined from your brief.</li></ul></article>
+      <article class="panel activity-panel"><div class="panel-heading"><h2>Live activity</h2><span class="mini-label"><span class="live-dot"></span> ACTUAL EVENTS</span></div><div id="events" class="events" aria-live="polite"><p class="empty">Agent and tool activity will appear here.</p></div></article>
+    </section>
+    <section class="detail-grid bottom-grid">
+      <article class="panel"><div class="panel-heading"><h2>Output files</h2><span id="artifact-count" class="pill subdued">0 files</span></div><p id="workspace" class="workspace-path">Each mission gets a new folder under PRIMUS outputs.</p><div id="artifacts" class="artifacts"><p class="empty">No artifacts yet. A model's message alone is not a created file.</p></div></article>
+      <article class="panel"><div class="panel-heading"><h2>Verification evidence</h2><span class="mini-label">SCOPE MATTERS</span></div><div id="checks" class="checks"><p class="empty">Actual file and runtime checks will appear here.</p></div><div id="review" class="review"></div><div id="notes" class="notes"></div></article>
+    </section>
+    <section id="execution-panel" class="panel execution-panel" hidden><div class="panel-heading"><h2>Actual runtime output</h2><span class="mini-label">OFFLINE SANDBOX</span></div><p class="muted small">Output captured from executed code. A successful exit does not by itself prove the requested behavior.</p><p id="runtime-repair-state" class="muted small"></p><div id="executions"></div></section>
+    <section id="history" class="panel history-panel"><div class="panel-heading"><h2>Recent PRIMUS task history</h2><span class="mini-label">PRIVATE METADATA</span></div><p class="muted small">Task text and replies are stored as hashes. Full mission details stay in this service session.</p><div id="history-list" class="history-list"></div></section>
+    <footer><span>PRIMUS MISSION CONTROL</span><span id="model">Local model</span><span>Permissions enforced by the core</span></footer>
+  </main>
+  <dialog id="file-dialog"><div class="panel-heading"><h2 id="file-title">Artifact</h2><button id="close-file" class="secondary">Close</button></div><p id="file-hash" class="mono small"></p><pre id="file-content"></pre></dialog>
+</body>
+</html>

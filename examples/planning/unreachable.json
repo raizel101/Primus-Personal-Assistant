@@ -1,0 +1,9 @@
+{
+  "name": "A locked document without an unlock action",
+  "facts": ["document_locked", "document_readable", "summary_ready"],
+  "initial": ["document_locked"],
+  "goal": ["summary_ready"],
+  "actions": [
+    {"name": "summarize_document", "preconditions": ["document_readable"], "add": ["summary_ready"], "delete": []}
+  ]
+}
