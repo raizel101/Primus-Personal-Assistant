@@ -1,5 +1,7 @@
 # PRIMUS - Local desktop control
 
+PRIMUS is a local-first AI personal assistant for managing files, opening apps, browsing websites, setting reminders, and searching documents. It supports voice, gestures, image analysis, and coding workflows. Locally hosted models and configurable permissions help protect privacy, while future work targets accuracy, speed, and reliable automation.
+
 ## Syllabus increment 1: MCP and local document RAG
 
 PRIMUS now has a bounded localhost MCP tools bridge and an explicitly approved document knowledge index. See [MCP and RAG setup](MCP_RAG_GUIDE.md) for commands, supported protocol/schema features, security boundaries and limitations. No new model or package is downloaded automatically.
