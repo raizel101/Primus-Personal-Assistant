@@ -2,6 +2,16 @@
 
 PRIMUS is a local-first AI personal assistant for managing files, opening apps, browsing websites, setting reminders, and searching documents. It supports voice, gestures, image analysis, and coding workflows. Locally hosted models and configurable permissions help protect privacy, while future work targets accuracy, speed, and reliable automation.
 
+## Project team
+
+**Auro University**
+
+**MSc-AI 2025-2027**
+
+- **Subhajeet Bose - Team Lead**
+- Mohhamed Adil Hathiwala
+- Tejash Patil
+
 ## Project documentation
 
 [Read the project documentation PDF](docs/Primus_Project_Documentation.pdf) for an overview of PRIMUS, its features, architecture, setup, privacy controls, opportunities, and challenges.
