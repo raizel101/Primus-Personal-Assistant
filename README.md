@@ -9,8 +9,8 @@ PRIMUS is a local-first AI personal assistant for managing files, opening apps, 
 **MSc-AI 2025-2027**
 
 - **Subhajeet Bose - Team Lead**
-- Mohhamed Adil Hathiwala
-- Tejash Patil
+- **Mohhamed Adil Hathiwala**
+- **Tejash Patil**
 
 ## Project documentation
 
